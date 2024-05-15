@@ -2,7 +2,7 @@
 
 **BDD** stands for Behavioral Driven Development. It is a software development process that aims to improve collaboration between developers, testers, and business stakeholders. BDD involves creating automated tests that are based on the expected behavior of the software, rather than just testing individual code components. This approach helps ensure that the software meets the desired functionality and is easier to maintain and update in the future.
 
-In traditional xUnit, you focused on every component's method individually. In BDD, we will focus on a feature or story to complete, which could include testing many different components in order to satisfy the criteria.  TestBox allows us to create these types of texts with human-readable functions that can match our features/stories and expectations.
+In traditional xUnit, you focused on every component's method individually. In BDD, we will focus on a `feature` or `story` to complete, which could include testing many different components to satisfy the criteria.  TestBox allows us to create these types of texts with human-readable functions matching our features/stories and expectations.
 
 ```cfscript
 describe( "Tests of TestBox behaviour", () => {
