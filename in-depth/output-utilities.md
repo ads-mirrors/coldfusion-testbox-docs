@@ -1,3 +1,7 @@
+---
+icon: rectangle-terminal
+---
+
 # Output Utilities
 
 ## Tests Output Utilities

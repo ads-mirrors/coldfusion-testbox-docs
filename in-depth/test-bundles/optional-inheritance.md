@@ -1,3 +1,7 @@
+---
+icon: arrow-turn-up
+---
+
 # Optional Inheritance
 
 At runtime we provide the inheritance via mixins so you don't have to worry about it. However, if you want to declare the inheritance you can do so and this will give you the following benefits:

@@ -1,3 +1,7 @@
+---
+icon: chart-network
+---
+
 # TestBox BDD Primer
 
 **BDD** stands for Behavioral Driven Development. It is a software development process that aims to improve collaboration between developers, testers, and business stakeholders. BDD involves creating automated tests that are based on the expected behavior of the software, rather than just testing individual code components. This approach helps ensure that the software meets the desired functionality and is easier to maintain and update in the future.

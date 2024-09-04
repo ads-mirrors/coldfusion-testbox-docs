@@ -1,5 +1,6 @@
 ---
 description: Extend TestBox your way!
+icon: codepen
 ---
 
 # Modules

@@ -1,3 +1,7 @@
+---
+icon: crate-apple
+---
+
 # Annotations
 
 In addition to the life-cycle methods, you can make any method a life-cycle method by giving it the desired annotation in its function definition. This is especially useful for parent classes that want to hook in to the TestBox life-cycle.

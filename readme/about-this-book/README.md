@@ -6,14 +6,11 @@ description: Learn about the authors of TestBox and how to support the project.
 
 The source code for this book is hosted on GitHub: [https://github.com/Ortus-Solutions/testbox-docs](https://github.com/Ortus-Solutions/testbox-docs). You can freely contribute to it and submit pull requests. The contents of this book is copyrighted by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without the author's consent. All content is provided _"As-Is"_ and can be freely distributed.
 
-* The majority of code examples in this book are done in `cfscript`.
-* The majority of code generation and running of examples are done via **CommandBox**: The ColdFusion (CFML) CLI, Package Manager, REPL - [http://www.ortussolutions.com/products/commandbox](http://www.ortussolutions.com/products/commandbox)
-
 ## External Trademarks & Copyrights
 
 Flash, Flex, ColdFusion, and Adobe are registered trademarks and copyrights of Adobe Systems, Inc.
 
-ColdBox, CommandBox, FORGEBOX, TestBox, ContentBox, and Ortus Solutions are all trademarks and copyrights of Ortus Solutions, Corp.
+BoxLang, ColdBox, CommandBox, FORGEBOX, TestBox, ContentBox, and Ortus Solutions are all trademarks and copyrights of Ortus Solutions, Corp.
 
 ## Notice of Liability
 

@@ -1,6 +1,10 @@
+---
+icon: sign-posts-wrench
+---
+
 # Installation
 
-TestBox can be installed easily via [CommandBox CLI](https://www.ortussolutions.com/products/commandbox) as a development dependency:
+TestBox can be installed easily via [CommandBox CLI](https://www.ortussolutions.com/products/commandbox) as a development dependency in your projects:
 
 ```bash
 // latest stable version
@@ -26,7 +30,7 @@ TestBox comes with its own CLI for CommandBox.  You can use it to generate tests
 install testbox-cli
 ```
 
-You will now have the `testbox namesapce available to you, try it out`
+You will now have the `testbox` namesapce available to you, try it out
 
 ```bash
 testbox help
@@ -48,6 +52,7 @@ testbox run
 
 ## System Requirements
 
+* BoxLang 1+
 * Lucee 5.x+&#x20;
 * ColdFusion 2018+
 

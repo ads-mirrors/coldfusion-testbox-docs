@@ -1,3 +1,7 @@
+---
+icon: binary-circle-check
+---
+
 # Injected Variables
 
 At runtime, TestBox will inject several public variables into your testing bundle CFCs to help you with your testing:

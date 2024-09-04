@@ -1,5 +1,6 @@
 ---
 description: Mock anything!
+icon: server
 ---
 
 # Mocking Data

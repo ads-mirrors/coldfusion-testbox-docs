@@ -14,6 +14,7 @@
 * [Overview](getting-started/overview.md)
 * [Installation](getting-started/installing-testbox/README.md)
   * [IDE Tools](getting-started/installing-testbox/ide-tools.md)
+  * [MXUnit Compatibility](getting-started/installing-testbox/mxunit-compatibility.md)
 
 ## Primers
 
@@ -81,8 +82,15 @@
   * [Test Browser](in-depth/running-tests/test-browser.md)
 * [Reporters](in-depth/reporters/README.md)
   * [Custom Reporters](in-depth/reporters/custom-reporters.md)
-* [MXUnit Compatibility](in-depth/mxunit-compatibility.md)
 * [Modules](in-depth/modules.md)
+* [Code Coverage](in-depth/introduction/README.md)
+  * [Running Code Coverage](in-depth/introduction/running-code-coverage.md)
+  * [Configuring Code Coverage](in-depth/introduction/configuring-code-coverage.md)
+  * [Known Behaviors](in-depth/introduction/known-issues.md)
+* [Continous Integration](in-depth/introduction-1/README.md)
+  * [Github Actions](in-depth/introduction-1/github-actions.md)
+  * [Gitlab](in-depth/introduction-1/gitlab.md)
+  * [Travis](in-depth/introduction-1/travis.md)
 
 ## Mocking
 
@@ -114,17 +122,3 @@
   * [Some Examples](mocking/mockbox/some-examples.md)
   * [Conclusion](mocking/mockbox/conclusion.md)
 * [Mocking Data](mocking/mocking-data.md)
-
-## Code Coverage
-
-* [Introduction](code-coverage/introduction.md)
-* [Running Code Coverage](code-coverage/running-code-coverage.md)
-* [Configuring Code Coverage](code-coverage/configuring-code-coverage.md)
-* [Known Behaviors](code-coverage/known-issues.md)
-
-## Continuous Integration
-
-* [Introduction](continuous-integration/introduction.md)
-* [Github Actions](continuous-integration/github-actions.md)
-* [Gitlab](continuous-integration/gitlab.md)
-* [Travis](continuous-integration/travis.md)

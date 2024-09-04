@@ -1,3 +1,7 @@
+---
+icon: solar-system
+---
+
 # xUnit
 
 * `beforeTests()` - Executes once before all tests for the entire test bundle CFC

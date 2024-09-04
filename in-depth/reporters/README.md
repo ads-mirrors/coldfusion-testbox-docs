@@ -1,3 +1,7 @@
+---
+icon: file-chart-pie
+---
+
 # Reporters
 
 TestBox comes also with a nice plethora of reporters:

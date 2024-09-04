@@ -1,8 +1,9 @@
 ---
 description: >-
-  TestBox is a next-generation testing framework for ColdFusion (CFML) based on
-  BDD (Behavior Driven Development) for providing a clean, obvious syntax for
-  writing tests.
+  TestBox is a next-generation testing framework for BoxLang and  ColdFusion
+  (CFML) based on BDD (Behavior Driven Development) for providing a clean,
+  obvious syntax for writing tests.
+icon: house-chimney-user
 ---
 
 # Introduction
@@ -11,7 +12,7 @@ description: >-
 
 ![TestBox](.gitbook/assets/TestBoxLogo300.png)
 
-**TestBox** is a next-generation testing framework for ColdFusion (CFML) based on [BDD](http://en.wikipedia.org/wiki/Behavior-driven\_development) (Behavior Driven Development) for providing a clean, obvious syntax for writing tests. It contains not only a testing framework, runner, assertions, and expectations library but also ships with MockBox, A mocking and stubbing companion. It also supports the xUnit style of testing and MXUnit compatibilities.
+**TestBox** is a next-generation testing framework for [BoxLang](https://www.boxlang.io) and ColdFusion (CFML) based on [BDD](http://en.wikipedia.org/wiki/Behavior-driven\_development) (Behavior Driven Development) for providing a clean, obvious syntax for writing tests. It contains not only a testing framework, runner, assertions, and expectations library but also ships with MockBox, A mocking and stubbing companion. It also supports the xUnit style of testing and MXUnit compatibilities.
 
 ### Features At A Glance
 
@@ -77,7 +78,6 @@ The ColdBox Websites, Documentation, logo, and content have a separate license, 
 
 * Help Group: [https://community.ortussolutions.com/c/communities/testbox/11](https://community.ortussolutions.com/c/communities/testbox/11)
 * BoxTeam Slack : [https://boxteam.ortussolutions.com](https://boxteam.ortussolutions.com)
-* CFML Slack: Look for the `box-products` channel: [http://cfml.slack.com](http://cfml.slack.com)
 
 ## Reporting a Bug
 

@@ -1,6 +1,6 @@
 # Github Actions
 
-![GitHub Actions logo](../.gitbook/assets/github-actions-logo.png)
+![GitHub Actions logo](../../.gitbook/assets/github-actions-logo.png)
 
 ## About GitHub Actions
 

@@ -1,5 +1,6 @@
 ---
 description: Create mocks and stubs!
+icon: block
 ---
 
 # MockBox

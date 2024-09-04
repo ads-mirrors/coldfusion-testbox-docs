@@ -1,3 +1,7 @@
+---
+icon: octagon-check
+---
+
 # Assertions
 
 TestBox supports the concept of [assertions](http://en.wikipedia.org/wiki/Assertion\_\(software\_development\)) to allow for validations and for legacy tests. We encourage developers to use our BDD expectations as they are more readable and fun to use (Yes, fun I said!).

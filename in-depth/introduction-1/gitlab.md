@@ -1,10 +1,10 @@
 # Gitlab
 
-![](../.gitbook/assets/gitlab.png)
+![](../../.gitbook/assets/gitlab.png)
 
 [Gitlab](https://www.gitlab.com) is one of the most popular collaboration software suites around. It is not only a CI server, but a source code server, docker registry, issue manager, and much much more. They are our personal favorite for private projects due to their power and flexibility.
 
-![](../.gitbook/assets/gitlab-ci.png)
+![](../../.gitbook/assets/gitlab-ci.png)
 
 ## Features
 

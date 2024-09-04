@@ -8,7 +8,7 @@ In this section, you will find the release notes for each version we release und
 
 ## Version 5.x - May 2023
 
-In this release, we have dropped legacy engines and added support for Adobe 2023 and Lucee 6.  We have also added major updates to spying and expectations.  We continue in this series to focus on productivity and fluency in the Testing language in preparation for more ways to test.
+In this release, we have dropped legacy engines and added support for the [BoxLang](https://www.boxlang.io) JVM language, Adobe 2023 and Lucee 6.  We have also added major updates to spying and expectations.  We continue in this series to focus on productivity and fluency in the Testing language in preparation for more ways to test.
 
 ## Version 4.x - April 2020
 

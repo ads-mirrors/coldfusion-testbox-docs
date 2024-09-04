@@ -55,4 +55,4 @@ You don't need to configure anything for code coverage to work. TestBox will aut
 
 Keep reading in the next section to find out how to configure the details of code coverage to only look at the files you want and also how to generate the Code Coverage Browser.
 
-![](../.gitbook/assets/testbox-codecoverage-overview.png)
+![](../../.gitbook/assets/testbox-codecoverage-overview.png)

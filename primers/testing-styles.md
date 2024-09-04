@@ -1,3 +1,7 @@
+---
+icon: bezier-curve
+---
+
 # Testing Styles
 
 TestBox comes with two flavors of testing: [BDD](http://en.wikipedia.org/wiki/Behavior-driven\_development) and [xUnit](http://en.wikipedia.org/wiki/XUnit), which you can use interchangeably.

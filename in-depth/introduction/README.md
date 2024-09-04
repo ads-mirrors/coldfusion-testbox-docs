@@ -1,4 +1,8 @@
-# Introduction
+---
+icon: lighthouse
+---
+
+# Code Coverage
 
 When writing tests for an app or library, it's generally regarded that more tests is better since you're covering more functionality and more likely to catch regressions as they happen.  This is true, but more specifically, it's important that your tests run _as much code_ in your project as possible.  Tests obviously can't check code that they doesn't run! &#x20;
 
@@ -10,7 +14,7 @@ Code coverage does not replace your tests nor does it change how you write your 
 
 TestBox supports code coverage statistics out-of-the box with no changes to your test suite and you can capture the data in a handful of ways, including a Coverage Browser report which visualizes every CF file in your code and shows you what lines executed and what lines didn't.
 
-![](../.gitbook/assets/testbox-codecoverage-overview.png)
+![](../../.gitbook/assets/testbox-codecoverage-overview.png)
 
 ## Requirements
 

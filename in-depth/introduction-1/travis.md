@@ -1,10 +1,10 @@
 # Travis
 
-![](../.gitbook/assets/travis-ci.png)
+![](../../.gitbook/assets/travis-ci.png)
 
 [Travis CI](https://travis-ci.org) is one of the most popular CI servers for open source software. At Ortus Solutions, we use it for all of our open source software due to its strength of pull request runners and multi-matrix runners. They have both free and commercial versions, so you can leverage it for private projects as well.
 
-![](../.gitbook/assets/travis-projectview.png)
+![](../../.gitbook/assets/travis-projectview.png)
 
 ## Features
 
