@@ -36,8 +36,6 @@
   * [Running Tests](primers/testbox-bdd-primer/running-tests.md)
   * [Reporters](primers/testbox-bdd-primer/reporters.md)
 * [TestBox xUnit Primer](primers/testbox-xunit-primer/README.md)
-  * [RefCard](primers/testbox-xunit-primer/refcard.md)
-  * [Requirements](primers/testbox-xunit-primer/requirements.md)
   * [Bundles: Group Your Tests](primers/testbox-xunit-primer/bundles-group-your-tests.md)
   * [Test Methods](primers/testbox-xunit-primer/test-methods.md)
   * [Assertions](primers/testbox-xunit-primer/assertions.md)

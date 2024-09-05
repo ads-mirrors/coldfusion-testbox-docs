@@ -1,3 +1,7 @@
+---
+icon: laptop-binary
+---
+
 # IDE Tools
 
 A modern editor can enhance your testing experience. We recommend VSCode due to the extensive modules library.  Here are the plugins we maintain for each platform.

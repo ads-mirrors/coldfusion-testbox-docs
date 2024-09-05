@@ -1,8 +1,18 @@
 # Skipping Tests and Suites
 
-Tests and suites can be skipped from execution by using the skip annotation in the component or function declaration. The reporters will show that these suites or tests where skipped from execution. The value of the skip annotation can be a simple true or false or it can be the name of a UDF that exists in the same bundle CFC. This UDF must return a boolean value and it is evaluated at runtime.
+Tests and suites can be skipped from execution by using the `skip` annotation in the component or function declaration or our `skip()` methods.   The reporters will show that these suites or tests where skipped from execution.&#x20;
 
-```javascript
+### Skip Annotation
+
+The `skip` annotation can have the following values:
+
+* `nothing` - If you just add the annotation, we will detect it and skip the test
+* `true` - Skips the test
+* `false` - Does not skip the test
+* `{udf_name}` - It will look for a UDF with that name, execute it and the value must evalute to boolean.
+
+```cfscript
+// Skips ALL the tests if the testEnv() returns TRUE
 component displayName="TestBox xUnit suite" skip="testEnv"{
 
      function setup(){
@@ -13,6 +23,10 @@ component displayName="TestBox xUnit suite" skip="testEnv"{
      function teardown(){
           structDelete( application, "wirebox" );
           structClear( request );
+     }
+     
+     function betaTest() skip{
+          ...
      }
 
      function testThrows() skip="true"{
@@ -34,15 +48,40 @@ component displayName="TestBox xUnit suite" skip="testEnv"{
 }
 ```
 
-## $assert.skip()
+### Skip Methods
+
+You can also skip manually by using the `skip()` method in the `Assertion` library and also in any bundle which is inherited by the `BaseSpec` class.
+
+#### $assert.skip( message="", detail="" )
 
 You can use the `$assert.skip( message, detail )` method to skip any spec or suite a-la-carte instead of as an argument to the function definitions.  This lets you programmatically skip certain specs and suites and pass a nice message.
 
 ```cfscript
 function testThrows(){
-     $assert.skip();
+     $assert.skip()
      $assert.throws(function(){
-          var hello = application.wirebox.getInstance( "myINvalidService" ).run();
-     });
+          var hello = application.wirebox.getInstance( "myINvalidService" ).run()
+     })
 }
 ```
+
+#### skip( message="", detail="" )
+
+The `BaseSpec` has this method available to you as well.
+
+```cfscript
+it( "can use a mocked stub", function(){
+    
+    // If conditions met, then skip
+    if( !conditionsMet() ){
+        skip( "conditions for execution not met" )
+    }
+
+    c = createStub().$( "getData", 4 )
+    r = calc.add( 4, c.getData() )
+    expect( r ).toBe( 8 )
+    expect( c.$once( "getData" ) ).toBeTrue()
+    
+} );
+```
+
