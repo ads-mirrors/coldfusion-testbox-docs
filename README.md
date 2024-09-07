@@ -1,9 +1,9 @@
 ---
+icon: house-chimney-user
 description: >-
   TestBox is a next-generation testing framework for BoxLang and  ColdFusion
   (CFML) based on BDD (Behavior Driven Development) for providing a clean,
   obvious syntax for writing tests.
-icon: house-chimney-user
 ---
 
 # Introduction
@@ -12,25 +12,72 @@ icon: house-chimney-user
 
 ![TestBox](.gitbook/assets/TestBoxLogo300.png)
 
-**TestBox** is a next-generation testing framework for [BoxLang](https://www.boxlang.io) and ColdFusion (CFML) based on [BDD](http://en.wikipedia.org/wiki/Behavior-driven\_development) (Behavior Driven Development) for providing a clean, obvious syntax for writing tests. It contains not only a testing framework, runner, assertions, and expectations library but also ships with MockBox, A mocking and stubbing companion. It also supports the xUnit style of testing and MXUnit compatibilities.
+**TestBox** is a next-generation testing framework for [BoxLang](https://www.boxlang.io) and ColdFusion (CFML) based on [BDD](http://en.wikipedia.org/wiki/Behavior-driven\_development) (Behavior Driven Development) for providing a clean, obvious syntax for writing tests. It contains not only a testing framework, console/web runner, assertions, and expectations library but also ships with MockBox, A mocking and stubbing companion.&#x20;
+
+
+
+{% tabs %}
+{% tab title="BDD" %}
+```cfscript
+describe( "My calculator features", () => {
+
+	beforeEach( () => {
+		calc = new Calculator()
+	} )	
+		
+	// Using expectations library
+	it( "can add", () => {
+		expect( calc.add(1,1) ).toBe( 2 )
+	} )
+	
+	// Using assert library
+	test( "it can multiply", () => {
+		$assert.isEqual( calc.multiply(2,2), 4 )
+	} )
+} )
+```
+{% endtab %}
+
+{% tab title="xUnit" %}
+```cfscript
+component hint="My calculator features"{
+	
+	function setup(){
+		calc = new Calculator()
+	}
+	
+	// Function name includes the word 'test'
+	// Using expectations library
+	function testAdd(){
+		expect( calc.add(1,1) ).toBe( 2 )
+	}
+		
+	// Any name, but with a test annotation
+	// Using assertions library
+	function itCanMultiply() test{
+		$assert.isEqual( calc.multiply(2,2), 4 )
+	}
+} )
+```
+{% endtab %}
+{% endtabs %}
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption><p>Runner</p></figcaption></figure>
 
 ### Features At A Glance
 
 Here is a simple listing of features TestBox brings to the table:
 
-* BDD style testing
-* xUnit style testing
-* Code Coverage via FusionReactor
+* BDD style or xUnit style testing
 * Testing life-cycle methods
 * [MockBox](http://wiki.coldbox.org/wiki/MockBox.cfm) integration for mocking and stubbing
-* [MockDataCFC](https://forgebox.io/view/mockdatacfc) for mocking JSON/complex data and relationships
-* Ability to extend and create custom test runners
-* Ability to extend and create custom test reporters
+* Mocking data library for mocking JSON/complex data and relationships
+* Ability to extend and create custom test runners and reporters
 * Extensible reporters, bundled with tons of them:
   * JSON
   * XML
-  * JUnit 4 XML
-  * Text (80's style)
+  * JUnit XML
+  * Text
   * Console
   * TAP ([Test Anything Protocol](http://testanything.org/))
   * Simple HTML
@@ -40,13 +87,9 @@ Here is a simple listing of features TestBox brings to the table:
 * Asynchronous testing
 * Multi-suite capabilities
 * Test skipping
-* Suite skipping
-* Dynamic skipping support via runtime executions
-* Test one or more suites exclusively
-* Test one or more tests/specs exclusively
 * Test labels and tagging
 * Testing debug output stream
-* Clickable suite titles to filter test execution
+* Code Coverage via [FusionReactor](https://fusion-reactor.com/)
 * Much more!
 
 ## Versioning
