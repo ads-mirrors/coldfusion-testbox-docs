@@ -1,5 +1,6 @@
 ---
 icon: t-rex
+description: Legacy Compatibility
 ---
 
 # MXUnit Compatibility

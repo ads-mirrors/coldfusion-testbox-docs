@@ -18,7 +18,6 @@
 
 ## Primers
 
-* [Testing Styles](primers/testing-styles.md)
 * [TestBox BDD Primer](primers/testbox-bdd-primer/README.md)
   * [Bundles: Group Your Tests](primers/testbox-bdd-primer/bundles-group-your-tests.md)
   * [Suites: Describe Your Tests](primers/testbox-bdd-primer/suites-describe-your-tests/README.md)

@@ -1,5 +1,6 @@
 ---
 description: Learn about the authors of TestBox and how to support the project.
+icon: image-portrait
 ---
 
 # About This Book

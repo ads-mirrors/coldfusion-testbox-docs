@@ -4,7 +4,7 @@ icon: sign-posts-wrench
 
 # Installation
 
-TestBox can be installed easily via [CommandBox CLI](https://www.ortussolutions.com/products/commandbox) as a development dependency in your projects:
+TestBox can be installed via [CommandBox CLI](https://www.ortussolutions.com/products/commandbox) as a development dependency in your projects:
 
 ```bash
 // latest stable version
@@ -46,15 +46,21 @@ testbox generate harness
 
 You can then run your tests by executing the `testbox run` command or by visiting the runner in the generated harness: `http://localhost/tests/runner.cfm`
 
-```
-testbox run
+```bash
+testbox run --help
 ```
 
 ## System Requirements
 
-* BoxLang 1+
-* Lucee 5.x+&#x20;
-* ColdFusion 2018+
+* [BoxLang 1+](https://boxlang.io) Language
+
+or
+
+* CFML Engines: Lucee 5.x+ or ColdFusion 2018+
+
+{% hint style="info" %}
+TestBox has been designed to work in the BoxLang language and also in CFML languages.
+{% endhint %}
 
 ## What's Included
 

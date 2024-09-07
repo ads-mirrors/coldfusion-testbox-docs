@@ -1,5 +1,6 @@
 ---
 description: A brief history of TestBox
+icon: rocket-launch
 ---
 
 # Release History

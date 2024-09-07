@@ -1,10 +1,111 @@
 ---
 icon: hands-holding-circle
+description: A quick overview of TestBox
 ---
 
 # Overview
 
-TestBox is a next generation testing framework for the [BoxLang JVM language](https://www.boxlang.io) and for ColdFusion (CFML) that is based on BDD (Behavior Driven Development) for providing a clean obvious syntax for writing tests. It contains not only a testing framework, runner, assertions, mocking/stubbing and expectations library. It also supports xUnit style of testing with MXUnit compatibilities.
+**TestBox** is a next-generation testing framework for the [BoxLang](https://www.boxlang.io) JVM language and ColdFusion (CFML) language based on [BDD](http://en.wikipedia.org/wiki/Behavior-driven\_development) (Behavior Driven Development) for providing a clean, obvious syntax for writing tests. It contains not only a testing framework, console/web runner, assertions, and expectations library but also ships with several mocking utilities.
+
+### Styles
+
+In TestBox you can write your tests in two different styles or approaches.
+
+#### BDD (Behavior Driven Development)
+
+BDD stands for **behavior-driven development** and is highly based on creating specifications and expectations of results in a readable DSL (Domain Specific Language).  You are not focusing on a specific unit and method to test, but on functionality, features and more.  This can encompass not only unit but also integration testing.
+
+#### xUnit (Test Driven Development)
+
+xUnit style of testing is the more traditional TDD or **test-driven development** approach where you create a test case bundle class that matches the software under test, and for each method in the SUT, you create a test method in the test bundle class.
+
+### Assertions & Expectations
+
+We also give you two ways to do assertions:
+
+1. [Assertions](../primers/testbox-xunit-primer/assertions.md) library, which is a traditional approach to assertions
+2. [Expectations](../in-depth/expectations/) library, which is a more fluent approach to assertions.
+
+### Life-Cycles
+
+Both approaches also offer different [life-cycle](../in-depth/life-cycle-methods/) callbacks so you can execute code during different times in the test execution.
+
+### Utilities
+
+TestBox will also offer different utilities:
+
+* Debug output to a debug buffer
+* Mock classes, methods and properties
+* Extension data mocking and JSON mocking
+* Logging facilities
+
+### Runners
+
+You can also execute your tests via the CLI, IDE or the web server.
+
+### Reports
+
+TestBox can produce many different types of reports for your test executions:
+
+* CLI / Console Output
+* VSCode Output
+* JSON
+* XML
+* JUNIT
+* TAP
+* HTML
+* DOC
+* Your own
+
+Here is a few samples:
+
+{% tabs %}
+{% tab title="BDD" %}
+```cfscript
+describe( "My calculator features", () => {
+
+	beforeEach( () => {
+		calc = new Calculator()
+	} )	
+		
+	// Using expectations library
+	it( "can add", () => {
+		expect( calc.add(1,1) ).toBe( 2 )
+	} )
+	
+	// Using assert library
+	test( "it can multiply", () => {
+		$assert.isEqual( calc.multiply(2,2), 4 )
+	} )
+} )
+```
+{% endtab %}
+
+{% tab title="xUnit" %}
+```cfscript
+component hint="My calculator features"{
+	
+	function setup(){
+		calc = new Calculator()
+	}
+	
+	// Function name includes the word 'test'
+	// Using expectations library
+	function testAdd(){
+		expect( calc.add(1,1) ).toBe( 2 )
+	}
+		
+	// Any name, but with a test annotation
+	// Using assertions library
+	function itCanMultiply() test{
+		$assert.isEqual( calc.multiply(2,2), 4 )
+	}
+} )
+```
+{% endtab %}
+{% endtabs %}
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Runner</p></figcaption></figure>
 
 ## Useful Resources
 
@@ -14,15 +115,3 @@ TestBox is a next generation testing framework for the [BoxLang JVM language](ht
 * [Unit testing with mock objects IBM developerWorks](http://www.ibm.com/developerworks/library/j-mocktest.html)
 * [Emergent Design by Scott Bain](http://www.netobjectives.com/emergent-design-evolutionary-nature-professional-software-development)
 * [Mocks Aren't Stubs by Martin Fowler](http://martinfowler.com/articles/mocksArentStubs.html)
-
-## Ref Cards
-
-Our RefCards will get you up and running in no time.
-
-## BDD RefCard
-
-[![TestBox BDD Refcard](../.gitbook/assets/testbox-bdd-refcard-150.png)](https://github.com/ColdBox/cbox-refcards/raw/master/TestBox%20BDD%20Primer/TestBox-BDD-Refcard.pdf)
-
-## xUnit RefCard
-
-[![TestBox xUnit Refcard](../.gitbook/assets/testbox-xunit-refcard-150.png)](https://github.com/ColdBox/cbox-refcards/raw/master/TestBox%20xUnit%20Primer/TestBox-xUnit-Refcard.pdf)
