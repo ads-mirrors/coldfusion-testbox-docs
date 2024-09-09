@@ -23,12 +23,12 @@ xUnit style of testing is the more traditional TDD or **test-driven development*
 
 We also give you two ways to do assertions:
 
-1. [Assertions](../primers/testbox-xunit-primer/assertions.md) library, which is a traditional approach to assertions
-2. [Expectations](../in-depth/expectations/) library, which is a more fluent approach to assertions.
+1. [Assertions](testbox-xunit-primer/assertions.md) library, which is a traditional approach to assertions
+2. [Expectations](../digging-deeper/expectations/) library, which is a more fluent approach to assertions.
 
 ### Life-Cycles
 
-Both approaches also offer different [life-cycle](../in-depth/life-cycle-methods/) callbacks so you can execute code during different times in the test execution.
+Both approaches also offer different [life-cycle](../digging-deeper/life-cycle-methods.md) callbacks so you can execute code during different times in the test execution.
 
 ### Utilities
 
@@ -60,30 +60,97 @@ TestBox can produce many different types of reports for your test executions:
 Here is a few samples:
 
 {% tabs %}
-{% tab title="BDD" %}
+{% tab title="BDD - BoxLang" %}
 ```cfscript
-describe( "My calculator features", () => {
+class{
 
-	beforeEach( () => {
-		calc = new Calculator()
-	} )	
-		
-	// Using expectations library
-	it( "can add", () => {
-		expect( calc.add(1,1) ).toBe( 2 )
-	} )
+  function run(){
+  	describe( "My calculator features", () => {
 	
-	// Using assert library
-	test( "it can multiply", () => {
-		$assert.isEqual( calc.multiply(2,2), 4 )
+		beforeEach( () => {
+			variables.calc = new Calculator()
+		} )
+			
+		// Using expectations library
+		it( "can add", () => {
+			expect( calc.add(1,1) ).toBe( 2 )
+		} )
+		
+		// Using assert library
+		test( "it can multiply", () => {
+			$assert.isEqual( calc.multiply(2,2), 4 )
+		} )
 	} )
-} )
+  }
+
+}
 ```
 {% endtab %}
 
-{% tab title="xUnit" %}
+{% tab title="xUnit - BoxLang" %}
+```groovy
+/**
+ * My calculator features
+ */
+class{
+
+	property calc;
+	
+	function setup(){
+		calc = new Calculator()
+	}
+	
+	// Function name includes the word 'test'
+	// Using expectations library
+	function testAdd(){
+		expect( calc.add(1,1) ).toBe( 2 )
+	}
+		
+	// Any name, but with a test annotation
+	// Using assertions library
+	@test
+	function itCanMultiply(){
+		$assert.isEqual( calc.multiply(2,2), 4 )
+	}
+}
+```
+{% endtab %}
+
+{% tab title="BDD - CFML" %}
 ```cfscript
-component hint="My calculator features"{
+component{
+
+  function run(){
+  	describe( "My calculator features", () => {
+	
+		beforeEach( () => {
+			variables.calc = new Calculator()
+		} );
+			
+		// Using expectations library
+		it( "can add", () => {
+			expect( calc.add(1,1) ).toBe( 2 )
+		} );
+		
+		// Using assert library
+		test( "it can multiply", () => {
+			$assert.isEqual( calc.multiply(2,2), 4 )
+		} );
+	} );
+  }
+
+}
+```
+{% endtab %}
+
+{% tab title="xUnit - CFML" %}
+```cfscript
+/**
+ * My calculator features
+ */
+component{
+	
+	property calc;
 	
 	function setup(){
 		calc = new Calculator()
@@ -100,10 +167,12 @@ component hint="My calculator features"{
 	function itCanMultiply() test{
 		$assert.isEqual( calc.multiply(2,2), 4 )
 	}
-} )
+}
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Runner</p></figcaption></figure>
 

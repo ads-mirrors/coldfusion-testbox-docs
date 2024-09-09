@@ -2,11 +2,11 @@
 icon: solar-system
 ---
 
-# TestBox xUnit Primer
+# xUnit Tests
 
 Unit testing is a software testing technique where individual components of a software application, known as units, are tested in isolation to ensure they work as intended. Each unit is a small application part, such as a function or method, and is tested independently from other parts. This helps identify and fix bugs early in the development process, ensures code quality, and facilitates easier maintenance and refactoring. Tools like TestBox allow developers to create and run automated unit tests, providing assertions to verify the correctness of the code.
 
-TestBox supports **xUnit** style of testing, like in other languages, via the creation of classes and functions that denote the tests to execute.  You can then evaluate the test either using [assertions](assertions.md) or the [expectations](../../in-depth/expectations/) library included with TestBox.
+TestBox supports **xUnit** style of testing, like in other languages, via the creation of classes and functions that denote the tests to execute.  You can then evaluate the test either using [assertions](assertions.md) or the [expectations](../../digging-deeper/expectations/) library included with TestBox.
 
 You will start by creating a test bundle (Usually with the word `Test` in the front or back), example: `UserServiceTest` or `TestUserService`.
 

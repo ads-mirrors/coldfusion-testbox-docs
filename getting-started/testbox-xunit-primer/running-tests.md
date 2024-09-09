@@ -1,6 +1,6 @@
 # Running Tests
 
-Running tests is essential of course.  There are many ways to run your tests, we will see the basics here, and you can check out our [Running Tests](../../in-depth/running-tests/) section in our in-depth guide.
+Running tests is essential of course.  There are many ways to run your tests, we will see the basics here, and you can check out our [Running Tests](../running-tests/) section in our in-depth guide.
 
 ### TestBox CLI
 

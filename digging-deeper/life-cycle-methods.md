@@ -1,10 +1,10 @@
 ---
-icon: crate-apple
+icon: heart-pulse
 ---
 
-# Annotations
+# Life-Cycle Annotations
 
-In addition to the life-cycle methods, you can make any method a life-cycle method by giving it the desired annotation in its function definition. This is especially useful for parent classes that want to hook in to the TestBox life-cycle.
+In addition to the life-cycle methods according to your style, you can make any method a life-cycle method by giving it the desired annotation in its function definition. This is especially useful for parent classes that want to hook in to the TestBox life-cycle.
 
 * `@beforeAll` - Executes once before all specs for the entire test bundle CFC
 * `@afterAll` - Executes once after all specs complete in the test bundle CFC

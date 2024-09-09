@@ -17,30 +17,97 @@ description: >-
 
 
 {% tabs %}
-{% tab title="BDD" %}
+{% tab title="BDD - BoxLang" %}
 ```cfscript
-describe( "My calculator features", () => {
+class{
 
-	beforeEach( () => {
-		calc = new Calculator()
-	} )	
-		
-	// Using expectations library
-	it( "can add", () => {
-		expect( calc.add(1,1) ).toBe( 2 )
-	} )
+  function run(){
+  	describe( "My calculator features", () => {
 	
-	// Using assert library
-	test( "it can multiply", () => {
-		$assert.isEqual( calc.multiply(2,2), 4 )
+		beforeEach( () => {
+			variables.calc = new Calculator()
+		} )
+			
+		// Using expectations library
+		it( "can add", () => {
+			expect( calc.add(1,1) ).toBe( 2 )
+		} )
+		
+		// Using assert library
+		test( "it can multiply", () => {
+			$assert.isEqual( calc.multiply(2,2), 4 )
+		} )
 	} )
-} )
+  }
+
+}
 ```
 {% endtab %}
 
-{% tab title="xUnit" %}
+{% tab title="xUnit - BoxLang" %}
+```groovy
+/**
+ * My calculator features
+ */
+class{
+
+	property calc;
+	
+	function setup(){
+		calc = new Calculator()
+	}
+	
+	// Function name includes the word 'test'
+	// Using expectations library
+	function testAdd(){
+		expect( calc.add(1,1) ).toBe( 2 )
+	}
+		
+	// Any name, but with a test annotation
+	// Using assertions library
+	@test
+	function itCanMultiply(){
+		$assert.isEqual( calc.multiply(2,2), 4 )
+	}
+}
+```
+{% endtab %}
+
+{% tab title="BDD - CFML" %}
 ```cfscript
-component hint="My calculator features"{
+component{
+
+  function run(){
+  	describe( "My calculator features", () => {
+	
+		beforeEach( () => {
+			variables.calc = new Calculator()
+		} );
+			
+		// Using expectations library
+		it( "can add", () => {
+			expect( calc.add(1,1) ).toBe( 2 )
+		} );
+		
+		// Using assert library
+		test( "it can multiply", () => {
+			$assert.isEqual( calc.multiply(2,2), 4 )
+		} );
+	} );
+  }
+
+}
+```
+{% endtab %}
+
+{% tab title="xUnit - CFML" %}
+```cfscript
+/**
+ * My calculator features
+ */
+component{
+	
+	property calc;
 	
 	function setup(){
 		calc = new Calculator()
@@ -57,7 +124,7 @@ component hint="My calculator features"{
 	function itCanMultiply() test{
 		$assert.isEqual( calc.multiply(2,2), 4 )
 	}
-} )
+}
 ```
 {% endtab %}
 {% endtabs %}
