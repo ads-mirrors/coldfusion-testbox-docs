@@ -43,6 +43,8 @@ TestBox will also offer different utilities:
 
 You can also execute your tests via the CLI, IDE or the web server.
 
+<figure><img src="../.gitbook/assets/testbox-text-reporter.png" alt=""><figcaption></figcaption></figure>
+
 ### Reports
 
 TestBox can produce many different types of reports for your test executions:
@@ -61,7 +63,7 @@ Here is a few samples:
 
 {% tabs %}
 {% tab title="BDD - BoxLang" %}
-```cfscript
+```java
 class{
 
   function run(){
@@ -88,7 +90,7 @@ class{
 {% endtab %}
 
 {% tab title="xUnit - BoxLang" %}
-```groovy
+```java
 /**
  * My calculator features
  */

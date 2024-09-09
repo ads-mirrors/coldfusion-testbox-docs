@@ -12,13 +12,11 @@ description: >-
 
 ![TestBox](.gitbook/assets/TestBoxLogo300.png)
 
-**TestBox** is a next-generation testing framework for [BoxLang](https://www.boxlang.io) and ColdFusion (CFML) based on [BDD](http://en.wikipedia.org/wiki/Behavior-driven\_development) (Behavior Driven Development) for providing a clean, obvious syntax for writing tests. It contains not only a testing framework, console/web runner, assertions, and expectations library but also ships with MockBox, A mocking and stubbing companion.&#x20;
-
-
+**TestBox** is a next-generation testing framework for the [BoxLang](https://www.boxlang.io) JVM language and ColdFusion (CFML) based on [BDD](http://en.wikipedia.org/wiki/Behavior-driven\_development) (Behavior Driven Development) for providing a clean, obvious syntax for writing tests. It contains not only a testing framework, console/web runner, assertions, and expectations library but also ships with MockBox, A mocking and stubbing companion.&#x20;
 
 {% tabs %}
 {% tab title="BDD - BoxLang" %}
-```cfscript
+```java
 class{
 
   function run(){
@@ -54,20 +52,20 @@ class{
 	property calc;
 	
 	function setup(){
-		calc = new Calculator()
+	    calc = new Calculator()
 	}
 	
 	// Function name includes the word 'test'
 	// Using expectations library
 	function testAdd(){
-		expect( calc.add(1,1) ).toBe( 2 )
+	    expect( calc.add(1,1) ).toBe( 2 )
 	}
 		
 	// Any name, but with a test annotation
 	// Using assertions library
 	@test
 	function itCanMultiply(){
-		$assert.isEqual( calc.multiply(2,2), 4 )
+	    $assert.isEqual( calc.multiply(2,2), 4 )
 	}
 }
 ```
@@ -110,19 +108,19 @@ component{
 	property calc;
 	
 	function setup(){
-		calc = new Calculator()
+	    calc = new Calculator()
 	}
 	
 	// Function name includes the word 'test'
 	// Using expectations library
 	function testAdd(){
-		expect( calc.add(1,1) ).toBe( 2 )
+	    expect( calc.add(1,1) ).toBe( 2 )
 	}
 		
 	// Any name, but with a test annotation
 	// Using assertions library
 	function itCanMultiply() test{
-		$assert.isEqual( calc.multiply(2,2), 4 )
+	    $assert.isEqual( calc.multiply(2,2), 4 )
 	}
 }
 ```
