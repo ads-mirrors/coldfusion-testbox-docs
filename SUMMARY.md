@@ -15,7 +15,7 @@
 * [Installation](getting-started/installing-testbox/README.md)
   * [IDE Tools](getting-started/installing-testbox/ide-tools.md)
   * [MXUnit Compatibility](getting-started/installing-testbox/mxunit-compatibility.md)
-* [Writing Test Bundles](getting-started/test-bundles.md)
+* [Writing Tests](getting-started/test-bundles.md)
 * [Running Tests](getting-started/running-tests/README.md)
   * [Run Listeners](getting-started/running-tests/run-listeners.md)
   * [Bundle(s) Runner](getting-started/running-tests/bundle-s-runner.md)
