@@ -1,9 +1,9 @@
 ---
 icon: house-chimney-user
 description: >-
-  TestBox is a next-generation testing framework for BoxLang and  ColdFusion
-  (CFML) based on BDD (Behavior Driven Development) for providing a clean,
-  obvious syntax for writing tests.
+  TestBox is a next-generation testing framework based on BDD (Behavior Driven
+  Development) and TDD (Test Driven Development), providing a clean, obvious
+  syntax for writing tests.
 ---
 
 # Introduction
@@ -33,7 +33,7 @@ class{
 		
 		// Using assert library
 		test( "it can multiply", () => {
-			$assert.isEqual( calc.multiply(2,2), 4 )
+			assertIsEqual( calc.multiply(2,2), 4 )
 		} )
 	} )
   }
@@ -127,7 +127,7 @@ component{
 {% endtab %}
 {% endtabs %}
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption><p>Runner</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Runner</p></figcaption></figure>
 
 ### Features At A Glance
 

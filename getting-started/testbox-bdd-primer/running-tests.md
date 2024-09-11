@@ -6,7 +6,7 @@ Running tests is essential of course.  There are many ways to run your tests, we
 
 The easiest way to run your tests is to use the TestBox CLI via the `testbox run` command.  Ensure you are in the web root of your project or have configured the `box.json` to include the TestBox runner in it as shown below.  If not CommandBox will try to run by convention your site + `test/runner.cfm` for you.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 You can also pass the runner URL via the `testbox run` command.  Try out the `testbox run help` command.

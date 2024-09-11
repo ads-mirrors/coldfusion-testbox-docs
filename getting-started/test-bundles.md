@@ -5,33 +5,64 @@ description: Tests are placed inside of classes we lovingly call Test Bundles.
 
 # Writing Tests
 
-No matter what style you decide to use, you will still end up building a **Testing Bundle** Class. This class will either contain[ **BDD style** ](testbox-bdd-primer/)suites and specs or [**xUnit style**](testbox-xunit-primer/) method tests.  You can create as many as you need and group them as necessary in different folders (packages).
+No matter what style you decide to use, you will still end up building a **Testing Bundle** Class. This class will either contain[ **BDD style** ](testbox-bdd-primer/)suites and specs or [**xUnit style**](testbox-xunit-primer/) method tests.  You can create as many as you need and group them as necessary in different folders (packages) according to their features.  Our test harness can be generated via the CLI or you can grab it from the installation folder `/bx or cfml/test-harness`.  Here is the typical layout of the harness:
 
-The class can extend our base class: `testbox.system.BaseSpec` or not.  If you do, then the tests will be faster and you will get IDE introspection.  However, TestBox doesn't enforce the inheritance.
+* `/tests` - The test harness
+  * `/resources` - Where you can place any kind of testing helpers, data, etc
+  * `/specs` - Where your test bundles can go
+  * `Application.bx|cfc` - Your test harness applilcation file. Controls life-cycle and application concerns.
+  * `runner.bx|cfm` - A web runner template that executes ALL your tests with tons of different options from a running web server.
+  * `test.xml` - An ANT task to do JUNIT testing.
+
+You will be creating test classes inside the `/tests/specs` folders.  The class can extend our base class: `testbox.system.BaseSpec` or not.  If you do, then the tests will be faster, executable directly from a web server and you will get IDE introspection.  However, TestBox doesn't enforce the inheritance.
+
+## My First Test
+
+Typically test bundles are suffixed with the word `Test` or `Spec`, such as `MyServiceSpec.bx` or `UserServiceTest.cfc`
 
 {% tabs %}
 {% tab title="BoxLang" %}
+{% code title="MyFirstSpec.bx" %}
 ```java
-class{
-     // easy right?
-}
-
 class extends="testbox.system.BaseSpec"{
-     // easy right?
+
+    function run(){
+	describe( "My First Test", ()=>{
+	  test( "it can add", ()=>{
+		expect( sum( 1, 2 ) ).toBe( 3 )
+	  } )
+	} )
+    }
+
+    private function sum( a, b ){
+        return a + b
+    }
+
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="CFML" %}
-```javascript
-component{
-     // easy right?
-}
-
+{% code title="MyTest.cfc" %}
+```cfscript
 component extends="testbox.system.BaseSpec"{
-     // easy right?
+
+    function run(){
+	describe( "My First Test", ()=>{
+	  test( "it can add", ()=>{
+		expect( sum( 1, 2 ) ).toBe( 3 );
+	  } );
+	} );
+    }
+
+    private function sum( a, b ){
+        return a + b;
+    }
+
 }
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -48,6 +79,18 @@ testbox create bdd CalculatorTest --open
 testbox create unit name=SecurityTest directory="test/specs/unit/"
 ```
 
+Now you can run your tests via the browser (http://localhost:port/tests/runner.cfm)
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+or via the CLI `testbox run`
+
+<div align="left">
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+</div>
+
 ## Optional Inheritance
 
 At runtime we provide the inheritance via mixins so you don't have to worry about it. However, if you want to declare the inheritance you can do so and this will give you the following benefits:
@@ -55,30 +98,6 @@ At runtime we provide the inheritance via mixins so you don't have to worry abou
 * Some IDEs will be able to give you introspection for methods and properties
 * You will be able to use the HTML runner by executing directly the runRemote method on the CFC Bundle
 * Your tests will run faster
-
-## Location
-
-Where do you place your test bundles?  Great question.  We recommend the following location for your projects: `(tests/specs)`
-
-```
-/tests
-  + /specs
-```
-
-This is also what the TestBox CLI commands use as a convention.  To make things easier you can use the CommandBox commands to generate a test harness for you:
-
-```bash
-testbox generate harness
-```
-
-This will generate your testing harness:
-
-* `/tests` - The test harness
-  * `/resources` - Where you can place any kind of testing helper, data, etc
-  * `/specs` - Where your test bundles can go
-  * `Application.bx|cfc` - Your test harness applilcation file
-  * `runner.bx|cfm` - A runner template that executes ALL your tests with tons of different options.  You can create as many as you like.
-  * `test.xml` - An ANT task to do JUNIT testing.
 
 ## Injected Variables
 
@@ -111,6 +130,15 @@ assert( expression, [message=""] )
 expect( actual ) : Expectation
 // Fail now!
 fail( message )
+
+// In BoxLang you can use the dynamic assertions feature
+// Meaning you can execute any assertion method by just prefixing it with 
+// the word `asssert{method}`
+assertIsEqual()
+assertIsTrue()
+assertIsFalse()
+... etc.
+// This leverages the dynamic on missing method in BoxLang but not available in CFML
 ```
 
 ### Extension Methods
@@ -221,6 +249,7 @@ beforeEach(any body, [struct data='[runtime expression]'])
 // Suite/Grouping Methods
 describe(string title, any body, [any labels='[runtime expression]'], [boolean asyncAll='false'], [any skip='false'], [boolean focused='false'])
 feature(string title, any body, [any labels='[runtime expression]'], [boolean asyncAll='false'], [any skip='false'], [boolean focused='false'])
+scenario(string title, any body, [any labels='[runtime expression]'], [boolean asyncAll='false'], [any skip='false'], [boolean focused='false'])
 story(string title, any body, [any labels='[runtime expression]'], [boolean asyncAll='false'], [any skip='false'], [boolean focused='false'])
 given(string title, any body, [any labels='[runtime expression]'], [boolean asyncAll='false'], [any skip='false'], [boolean focused='false'])
 when(string title, any body, [any labels='[runtime expression]'], [boolean asyncAll='false'], [any skip='false'], [boolean focused='false'])
@@ -228,6 +257,7 @@ when(string title, any body, [any labels='[runtime expression]'], [boolean async
 // skip the suite
 xdescribe()
 xfeature()
+xscenario()
 xgiven()
 xstory()
 xwhen()
@@ -235,6 +265,7 @@ xwhen()
 // focus the suite
 fdescribe()
 ffeature()
+fscenario()
 fgiven()
 fstory()
 fwhen()

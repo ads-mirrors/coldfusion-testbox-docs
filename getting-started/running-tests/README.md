@@ -1,10 +1,24 @@
 ---
 icon: magnifying-glass-play
+description: Test All Things!
 ---
 
 # Running Tests
 
-TestBox ships with several test runners internally but we have tried to simplify and abstract it with our TestBox object which can be found in the `testbox.system package`. The `testbox` object allows you to execute tests from a CFC, CFM, HTTP, SOAP, NodeJS or REST. You can also make your CFC's extend from our `BaseSpec` class so you can execute it directly via the URL. The main execution methods are:
+TestBox tests can be run from different sources from what we call **Runners.**  These can be from different sources:
+
+* CLI
+  * TestBox CLI
+  * NodeJS
+* Web Server
+  * Runner
+  * TestBundle Directly
+
+Your test harness already includes the web runner: `runner.bx or runner.cfm`.  You can execute that directly in your browser to get the results or run it via the CLI: `testbox run`.  We invite you to explore the different runners available to you.
+
+### Custom Runners
+
+However, you can create your own custom runners as long as you instantiate the `TestBox` class and execute one of it's runnable methods.  The main execution methods are:
 
 ```javascript
 // Run tests and produce reporter results
@@ -23,7 +37,9 @@ http://localhost/tests/spec.cfc?method=runRemote
 testbox run
 ```
 
-> We encourage you to read the [API docs](http://apidocs.ortussolutions.com/testbox/current) included in the distribution for the complete parameters for each method.
+{% hint style="info" %}
+We encourage you to read the [API docs](http://apidocs.ortussolutions.com/testbox/current) included in the distribution for the complete parameters for each method.
+{% endhint %}
 
 ## `run()` Arguments
 
