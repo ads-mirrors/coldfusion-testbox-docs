@@ -1,18 +1,77 @@
+---
+icon: code-simple
+---
+
 # Bundle(s) Runner
 
-```javascript
-<cfset r = new coldbox.system.TestBox( "coldbox.testing.cases.testing.specs.BDDTest" ) >
-<cfoutput>#r.run()#</cfoutput>
+This is more of an approach than an actual specifc runner.  This approach shows you that you can create a script file in BoxLang (`bxs`) or in CFML (`cfs|cfm`) that can in turn execute any test bundle(s) with many many runnable configurations.
 
-<cfset r = new coldbox.system.TestBox( bundles="coldbox.testing.cases.testing.specs.BDDTest" ) >
-<cfoutput>#r.run( testSpecs="OnlyThis,AndThis,AndThis" )#</cfoutput>
+### BoxLang
 
-<cfset r = new coldbox.system.TestBox( bundles="coldbox.testing.cases.testing.specs.BDDTest" ) >
-<cfoutput>#r.run( testSuites="Custom Matchers,A Spec" )#</cfoutput>
+The BoxLang language allows you to run your scripts via the CLI or the browser if you have a web server attached to your project.
 
-<cfset r = new coldbox.system.TestBox( [ "coldbox.testing.cases.testing.specs.BDDTest", "coldbox.testing.cases.testing.specs.BDD2Test" ] ) >
-<cfoutput>#r.run()#</cfoutput>
+{% code title="run.bxs" %}
+```cfscript
+// Test the BDD Bundle
+r = new testbox.system.TestBox( "tests.specs.BDDTest" )
+println( r.run() );
 
-<cfset r = new coldbox.system.TestBox( bundles="coldbox.testing.cases.testing.specs.BDDTest", labels="railo" ) >
-<cfoutput>#r.run(reporter="json")#</cfoutput>
+// Test the bundle with ONLY the passed specs
+r = new testbox.system.TestBox( "tests.specs.BDDTest" )
+println( r.run( testSpecs="OnlyThis,AndThis,AndThis" ) )
+
+// Test the bundle with ONLY the passed suites
+r = new testbox.system.TestBox( "tests.specs.BDDTest" )
+println( r.run( testSuites="Custom Matchers,A Spec" ) )
+
+// Test the passed array of bundles
+r = new testbox.system.TestBox( [ "tests.specs.BDDTest", "tests.specs.BDD2Test" ] )
+println( r.run() )
+
+// Test with labels and the minimal reporter
+r = new testbox.system.TestBox( bundles: "tests.specs.BDDTest", labels="linux" )
+println( r.run( reporter: "mintext" ) )
 ```
+{% endcode %}
+
+If you want to run it in the CLI, then just use:
+
+```bash
+boxlang run.bxs
+```
+
+If you want to run it via the web server, place it in your `/tests/` folder and run it
+
+```
+http://localhost/tests/run.bxs
+```
+
+### CFML
+
+CFML engines only allow you to run tests via the browser.  So create your script, place it in your web accessible `/tests` folder and run it.
+
+{% code title="run.cfm" %}
+```cfscript
+<cfscript>
+	// Test the BDD Bundle
+	r = new testbox.system.TestBox( "tests.specs.BDDTest" )
+	writeOutput( r.run() );
+	
+	// Test the bundle with ONLY the passed specs
+	r = new testbox.system.TestBox( "tests.specs.BDDTest" )
+	writeOutput( r.run( testSpecs="OnlyThis,AndThis,AndThis" ) )
+	
+	// Test the bundle with ONLY the passed suites
+	r = new testbox.system.TestBox( "tests.specs.BDDTest" )
+	writeOutput( r.run( testSuites="Custom Matchers,A Spec" ) )
+	
+	// Test the passed array of bundles
+	r = new testbox.system.TestBox( [ "tests.specs.BDDTest", "tests.specs.BDD2Test" ] )
+	writeOutput( r.run() )
+	
+	// Test with labels and the minimal reporter
+	r = new testbox.system.TestBox( bundles: "tests.specs.BDDTest", labels="linux" )
+	writeOutput( r.run( reporter: "mintext" ) )
+</cfscript>
+```
+{% endcode %}

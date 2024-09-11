@@ -32,7 +32,7 @@ The only requirement is that it be in either in the webroot or in a location whe
 
 ### System Requirements
 
-* <img src="../../.gitbook/assets/image (2).png" alt="" data-size="line"> [BoxLang 1+](https://boxlang.io) Language (Our preference)
+* <img src="../../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> [BoxLang 1+](https://boxlang.io) Language (Our preference)
 * CFML Engines: Lucee 5.x+ or ColdFusion 2018+
 
 {% hint style="success" %}
@@ -45,7 +45,7 @@ Here is a table of what's included in the installation package:
 
 <table><thead><tr><th width="206">Folder</th><th>Description</th></tr></thead><tbody><tr><td><strong>bx</strong></td><td>BoxLang tools</td></tr><tr><td><strong>cfml</strong></td><td>CFML Tools</td></tr><tr><td><strong>system</strong></td><td>The main system framework folder</td></tr><tr><td><strong>test-visualizer</strong></td><td>A static visualizer of JSON reports. Just drop in a <code>test-results.json</code> and run it!</td></tr><tr><td><strong>tests</strong></td><td>Several sample tests and runners are actually used to build TestBox</td></tr></tbody></table>
 
-#### <img src="../../.gitbook/assets/image.png" alt="" data-size="line"> BoxLang Tools
+#### <img src="../../.gitbook/assets/image (2).png" alt="" data-size="line"> BoxLang Tools
 
 In the `bx` folder you will find specific BoxLang tools:
 

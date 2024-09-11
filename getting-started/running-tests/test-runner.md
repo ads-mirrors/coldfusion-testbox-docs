@@ -1,6 +1,12 @@
+---
+icon: globe-wifi
+---
+
 # Web Runner
 
 Every test harness comes with a `runner.bx or runner.cfm` in the root of the `tests` folder.  This is called the web runner and is executable via the web server you are running your application on.  This will execute all the tests by convention found in the `tests/specs` folder.
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 ```
 http://localhost/tests/runner.cfm

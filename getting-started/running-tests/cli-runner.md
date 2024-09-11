@@ -1,4 +1,8 @@
-# CommandBox Runner
+---
+icon: square-terminal
+---
+
+# CLI Runner
 
 By installing the CommandBox [TestBox CLI](../installing-testbox/) you can get access to our CommandBox runner.  The CommandBox runner leverages the HTTP(s) protocol to test against any server.  By default it will inspect your `box.json` for a `default` runner or try to connect to `/tests/runner.cfm` by default.&#x20;
 

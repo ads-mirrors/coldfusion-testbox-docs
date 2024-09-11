@@ -1,42 +1,19 @@
+---
+icon: ant
+---
+
 # ANT Runner
 
-In our test samples and templates we include an ANT runner that will be able to execute your tests via ANT. It can also leverage our ANTJunit reporter to use the junitreport task to produce JUnit compliant reports as well. You can find this runner in the test samples and runner template directory.
+In our test harness we include an ANT runner (`test.xml`) that will be able to execute your tests via ANT.&#x20;
 
-```javascript
-<cfsetting showDebugOutput="false">
-<cfparam name="url.reporter"       default="simple">
-<cfparam name="url.directory"      default="test.specs">
-<cfparam name="url.recurse"        default="true" type="boolean">
-<cfparam name="url.bundles"        default="">
-<cfparam name="url.labels"         default="">
-<cfparam name="url.reportpath"     default="#expandPath( "/tests/results" )#">
-<cfscript>
-// prepare for tests for bundles or directories
-if( len( url.bundles ) ){
-     testbox = new testbox.system.TestBox( bundles=url.bundles, labels=url.labels );
-}
-else{
-     testbox = new testbox.system.TestBox( directory={ mapping=url.directory, recurse=url.recurse}, labels=url.labels );
-}
-// Run Tests using correct reporter
-results = testbox.run( reporter=url.reporter );
-// do stupid JUnitReport task processing, if the report is ANTJunit
-if( url.reporter eq "ANTJunit" ){
-     xmlReport = xmlParse( results );
-     for( thisSuite in xmlReport.testsuites.XMLChildren ){
-          fileWrite( url.reportpath & "/TEST-" & thisSuite.XMLAttributes.name & ".xml", toString( thisSuite ) );
-     }
-}
-// Writeout Results
-writeoutput( results );
-</cfscript>
-```
+{% hint style="info" %}
+**Ant** is a Java-based build tool from Apache designed to automate the software build process. Unlike traditional build tools that rely on shell commands, Ant uses XML to describe the build process and its dependencies, making it platform-independent and flexible. It is particularly useful for Java projects to compile code, manage dependencies, and create deployment packages.\
+[https://ant.apache.org/bindownload.cgi](https://ant.apache.org/bindownload.cgi)
+{% endhint %}
 
-## Ant
+It can also leverage our `ANTJunit` reporter to use the `junitreport` task to produce JUnit compliant reports as well.
 
-This build is our global build for running TestBox via ANT.
-
-```javascript
+```xml
 <?xml version="1.0"?>
 <--<
 This ANT build can be used to execute your tests with automation using our included runner.cfm.
@@ -58,7 +35,7 @@ PLEASE NOTE THAT YOU MUST ALTER THE RUNNER'S URL ACCORDING TO YOUR ENVIRONMENT.
 <project name="testbox-ant-runner" default="run" basedir=".">
 
      <-- <THE URL TO THE RUNNER, PLEASE CHANGE ACCORDINGLY-->
-     <property name="url.runner"             value="http://cf10cboxdev.jfetmac/coldbox/ApplicationTemplates/Advanced/tests/runner.cfm?"/>
+     <property name="url.runner"             value="http://localhost/tests/runner.cfm?"/>
      <-- <FILL OUT THE BUNDLES TO TEST, CAN BE A LIST OF CFC PATHS -->
      <property name="test.bundles"      value="" />
      <-- <FILL OUT THE DIRECTORY MAPPING TO TEST -->
@@ -155,4 +132,13 @@ PLEASE NOTE THAT YOU MUST ALTER THE RUNNER'S URL ACCORDING TO YOUR ENVIRONMENT.
      </target>
 
 </project>
+```
+
+Now you can run the commands
+
+```bash
+# Execute the default 'run' target
+ant -f test.xml
+# Execute a specific target
+ant -f test.xml run-junit
 ```
