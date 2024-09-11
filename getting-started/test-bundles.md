@@ -5,7 +5,7 @@ description: Tests are placed inside of classes we lovingly call Test Bundles.
 
 # Writing Tests
 
-No matter what style you decide to use, you will still end up building a **Testing Bundle** Class. This class will either contain BDD style suites and specs or xUnit style method tests.  You can create as many as you need and group them as necessary in different folders (packages).
+No matter what style you decide to use, you will still end up building a **Testing Bundle** Class. This class will either contain[ **BDD style** ](testbox-bdd-primer/)suites and specs or [**xUnit style**](testbox-xunit-primer/) method tests.  You can create as many as you need and group them as necessary in different folders (packages).
 
 The class can extend our base class: `testbox.system.BaseSpec` or not.  If you do, then the tests will be faster and you will get IDE introspection.  However, TestBox doesn't enforce the inheritance.
 
