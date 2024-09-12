@@ -7,7 +7,7 @@ description: Get up and running quickly
 
 ## Framework
 
-TestBox can be installed via [CommandBox CLI](https://www.ortussolutions.com/products/commandbox) as a development dependency in your projects:
+TestBox can be installed via [CommandBox CLI](https://www.ortussolutions.com/products/commandbox) as a development dependency in the root of your projects:
 
 ```bash
 // Create a new project
@@ -41,7 +41,7 @@ TestBox has been designed to work in the BoxLang language and can also be compat
 
 ### What's Included
 
-Here is a table of what's included in the installation package:
+Here is a table of what's included in the installation package which goes in `/{project}/testbox`
 
 <table><thead><tr><th width="206">Folder</th><th>Description</th></tr></thead><tbody><tr><td><strong>bx</strong></td><td>BoxLang tools</td></tr><tr><td><strong>cfml</strong></td><td>CFML Tools</td></tr><tr><td><strong>system</strong></td><td>The main system framework folder</td></tr><tr><td><strong>test-visualizer</strong></td><td>A static visualizer of JSON reports. Just drop in a <code>test-results.json</code> and run it!</td></tr><tr><td><strong>tests</strong></td><td>Several sample tests and runners are actually used to build TestBox</td></tr></tbody></table>
 
@@ -49,13 +49,13 @@ Here is a table of what's included in the installation package:
 
 In the `bx` folder you will find specific BoxLang tools:
 
-<table><thead><tr><th width="166">Folder</th><th>Description</th></tr></thead><tbody><tr><td><strong>test-browser</strong></td><td>This is a little utility to facilitate navigating big testing suites. This helps navigate to the suites you want and execute them instead of typing all the time.</td></tr><tr><td><strong>test-harness</strong></td><td>A vanilla test runner for any application</td></tr><tr><td><strong>test-runner</strong></td><td>A simple GUI test runner</td></tr></tbody></table>
+<table><thead><tr><th width="166">Folder</th><th>Description</th></tr></thead><tbody><tr><td><strong>browser</strong></td><td>This is a little utility to facilitate navigating big testing suites. This helps navigate to the suites you want and execute them instead of typing all the time.</td></tr><tr><td><strong>tests</strong></td><td>A vanilla test runner for any application</td></tr><tr><td><strong>runner</strong></td><td>A simple GUI test runner</td></tr></tbody></table>
 
 #### CFML Tools
 
 In the `cfml` folder you will find specific BoxLang tools:
 
-<table><thead><tr><th width="165">Folder</th><th>Description</th></tr></thead><tbody><tr><td><strong>test-browser</strong></td><td>This is a little utility to facilitate navigating big testing suites. This helps navigate to the suites you want and execute them instead of typing all the time.</td></tr><tr><td><strong>test-harness</strong></td><td>A vanilla test runner for any application</td></tr><tr><td><strong>test-runner</strong></td><td>A simple GUI test runner</td></tr></tbody></table>
+<table><thead><tr><th width="165">Folder</th><th>Description</th></tr></thead><tbody><tr><td><strong>browser</strong></td><td>This is a little utility to facilitate navigating big testing suites. This helps navigate to the suites you want and execute them instead of typing all the time.</td></tr><tr><td><strong>tests</strong></td><td>A vanilla test runner for any application</td></tr><tr><td><strong>runner</strong></td><td>A simple GUI test runner</td></tr></tbody></table>
 
 ### IDE Tooling
 
@@ -81,13 +81,23 @@ testbox help
 
 ### Generating a Testing Harness
 
-Once you install TestBox, you'll need a quick way to set up a testing harness. The `generate harness` command will add a new `/tests` folder to your application with a few example tests to get you started.
+Once you install TestBox, you'll need a quick way to set up a testing harness in your project. The `generate harness` command will add a new `/tests` folder to your application with a few example tests to get you started.
 
 ```bash
 testbox generate harness
 ```
 
-You can then run your tests by executing the `testbox run` command or by visiting the runner in the generated harness: `http://localhost/tests/runner.cfm`
+`/tests` - The test harness generated
+
+* `/resources` - Where you can place any kind of testing helpers, data, etc
+* `/specs` - Where your test bundles can go
+  * `/unit`
+  * `/integration`
+* `Application.bx|cfc` - Your test harness applilcation file. Controls life-cycle and application concerns.
+* `runner.bx|cfm` - A web runner template that executes ALL your tests with tons of different options from a running web server.
+* `test.xml` - An ANT task to do JUNIT testing.
+
+You can then run your tests by executing the `testbox run` command in CommandBox or by visiting the web runner in the generated harness: `http://localhost/tests/runner.cfm`
 
 ```bash
 testbox run --help

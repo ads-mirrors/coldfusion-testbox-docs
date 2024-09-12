@@ -75,8 +75,9 @@ testbox create bdd --help
 testbox create unit --help
 
 # Examples
+# Remember that by convention it will create bundles at /tests/specs
 testbox create bdd CalculatorTest --open
-testbox create unit name=SecurityTest directory="test/specs/unit/"
+testbox create unit name=SecurityTest directory="tests/specs/unit/"
 ```
 
 Now you can run your tests via the browser (http://localhost:port/tests/runner.cfm)
