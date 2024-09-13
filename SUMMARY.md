@@ -17,7 +17,7 @@
   * [MXUnit Compatibility](getting-started/installing-testbox/mxunit-compatibility.md)
 * [Writing Tests](getting-started/test-bundles.md)
 * [Running Tests](getting-started/running-tests/README.md)
-  * [CLI Runner](getting-started/running-tests/cli-runner.md)
+  * [CommandBox Runner](getting-started/running-tests/commandbox-runner.md)
   * [Web Runner](getting-started/running-tests/test-runner.md)
   * [Bundle(s) Runner](getting-started/running-tests/bundle-s-runner.md)
   * [Directory Runner](getting-started/running-tests/directory-runner.md)

@@ -8,7 +8,8 @@ description: Test All Things!
 TestBox tests can be run from different sources from what we call **Runners.**  These can be from different sources:
 
 * CLI
-  * TestBox CLI
+  * TestBox CLI (Powered by CommandBox)
+  * BoxLang Scripts
   * NodeJS
 * Web Server
   * Runner
@@ -17,8 +18,8 @@ TestBox tests can be run from different sources from what we call **Runners.**  
 
 Your test harness already includes the web runner: `runner.bx or runner.cfm`.  You can execute that directly in your browser to get the results or run it via the CLI: `testbox run`.  We invite you to explore the different runners available to you.
 
-{% content-ref url="cli-runner.md" %}
-[cli-runner.md](cli-runner.md)
+{% content-ref url="commandbox-runner.md" %}
+[commandbox-runner.md](commandbox-runner.md)
 {% endcontent-ref %}
 
 {% content-ref url="test-runner.md" %}
@@ -74,42 +75,41 @@ testbox run
 We encourage you to read the [API docs](http://apidocs.ortussolutions.com/testbox/current) included in the distribution for the complete parameters for each method.
 {% endhint %}
 
-## `run()` Arguments
+## `run()`&#x20;
 
 Here are the arguments you can use for initializing TestBox or executing the `run()` method
 
-| Argument     | Required | Default | Type                      | Description                                                                                                                                                                                                                                                                                     |
-| ------------ | -------- | ------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bundles      | true     | ---     | string/array              | The path, list of paths or array of paths of the spec bundle CFCs to run and test                                                                                                                                                                                                               |
-| directory    | false    | ---     | struct                    | The directory mapping path or a struct: \[ mapping = the path to the directory using dot notation (myapp.testing.specs), recurse = boolean, filter = closure that receives the path of the CFC found, it must return true to process or false to continue process ]                             |
-| reporter     | false    | simple  | string/struct/instance    | The type of reporter to use for the results, by default is uses our 'simple' report. You can pass in a core reporter string type or an instance of a coldbox.system.reports.IReporter. You can also pass a struct with \[type="string or classpath", options={}] if a reporter expects options. |
-| labels       | false    | false   | string/array              | The string or array of labels the runner will use to execute suites and specs with.                                                                                                                                                                                                             |
-| options      | false    | {}      | struct                    | A structure of property name-value pairs that each runner can implement and use at its discretion.                                                                                                                                                                                              |
-| testBundles  | false    | ---     | string/array              | A list or array of bundle names that are the ones that will be executed ONLY!                                                                                                                                                                                                                   |
-| testSuites   | false    | ---     | string/array              | A list or array of suite names that are the ones that will be executed ONLY!                                                                                                                                                                                                                    |
-| testSpecs    | false    | ---     | string/array              | A list or array of test names that are the ones that will be executed ONLY                                                                                                                                                                                                                      |
-| callbacks    | false    | `{}`    | struct of closures or CFC | A struct of listener callbacks or a CFC with callbacks for listening to progress of the testing: `onBundleStart,onBundleEnd,onSuiteStart,onSuiteEnd,onSpecStart,onSpecEnd`                                                                                                                      |
-| eagerFailure | false    | false   | boolean                   | If true, then after testing a bundle if there are any failures or errors no more testing will be performed.                                                                                                                                                                                     |
-
-## `runRemote()` Arguments
-
-Here are the arguments you can use for executing the `runRemote()` method of the TestBox object:
-
-| Argument        | Required | Default | Type         | Description                                                                                                                                                              |
-| --------------- | -------- | ------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| bundles         | true     | ---     | string       | The path, list of paths or array of paths of the spec bundle CFCs to run and test                                                                                        |
-| directory       | false    | ---     | string       | The directory mapping to test: directory = the path to the directory using dot notation (myapp.testing.specs)                                                            |
-| recurse         | false    | true    | boolean      | Recurse the directory mapping or not, by default it does                                                                                                                 |
-| reporter        | false    | simple  | string/path  | The type of reporter to use for the results, by default is uses our 'simple' report. You can pass in a core reporter string type or a class path to the reporter to use. |
-| reporterOptions | false    | {}      | JSON         | A JSON struct literal of options to pass into the reporter                                                                                                               |
-| labels          | false    | false   | string       | The string array of labels the runner will use to execute suites and specs with.                                                                                         |
-| options         | false    | {}      | JSON         | A JSON struct literal of configuration options that are optionally used to configure a runner.                                                                           |
-| testBundles     | false    | ---     | string/array | A list or array of bundle names that are the ones that will be executed ONLY!                                                                                            |
-| testSuites      | false    | ---     | string       | A list of suite names that are the ones that will be executed ONLY!                                                                                                      |
-| testSpecs       | false    | ---     | string       | A list of test names that are the ones that will be executed ONLY                                                                                                        |
-| eagerFailure    | false    | false   | boolean      | If true, then after testing a bundle if there are any failures or errors no more testing will be performed.                                                              |
-
-### Notes
+```cfscript
+/**
+ * Run me some testing goodness, this can use the constructed object variables or the ones
+ * you can send right here.
+ *
+ * @bundles      The path, list of paths or array of paths of the spec bundle classes to run and test
+ * @directory    The directory to test which can be a simple mapping path or a struct with the following options: [ mapping = the path to the directory using dot notation (myapp.testing.specs), recurse = boolean, filter = closure that receives the path of the class found, it must return true to process or false to continue process ]
+ * @reporter     The type of reporter to use for the results, by default is uses our 'simple' report. You can pass in a core reporter string type or an instance of a testbox.system.reports.IReporter. You can also pass a struct if the reporter requires options: {type="", options={}}
+ * @labels       The list or array of labels that a suite or spec must have in order to execute.
+ * @excludes     The list or array of labels that a suite or spec must not have in order to execute.
+ * @options      A structure of configuration options that are optionally used to configure a runner.
+ * @testBundles  A list or array of bundle names that are the ones that will be executed ONLY!
+ * @testSuites   A list or array of suite names that are the ones that will be executed ONLY!
+ * @testSpecs    A list or array of test names that are the ones that will be executed ONLY!
+ * @callbacks    A struct of listener callbacks or a class with callbacks for listening to progress of the testing: onBundleStart,onBundleEnd,onSuiteStart,onSuiteEnd,onSpecStart,onSpecEnd
+ * @eagerFailure If this boolean is set to true, then execution of more bundle tests will stop once the first failure/error is detected. By default this is false.
+ */
+any function run(
+	any bundles,
+	any directory,
+	any reporter,
+	any labels,
+	any excludes,
+	struct options,
+	any testBundles      = [],
+	any testSuites       = [],
+	any testSpecs        = [],
+	any callbacks        = {},
+	boolean eagerFailure = false
+)
+```
 
 * The `bundles` argument which can be a single CFC path or an array of CFC paths or a directory argument so it can go and discover the test bundles from that directory.&#x20;
 * The `reporter` argument can be a core reporter name like: json,xml,junit,raw,simple,dots,tap,min,etc or it can be an instance of a reporter CFC.&#x20;
