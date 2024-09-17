@@ -105,9 +105,21 @@ testbox run --help
 
 ### Generating Tests
 
-You can also use the CLI to generate tests according to your style
+You can also use the CLI to generate tests according to your style and also it detects if you are using BoxLang or a CFML engine.
 
 ```bash
 testbox create bdd --help
 testbox create unit --help
+```
+
+### Language Generation
+
+If you want to be explicit you can use the `language` id to set it to your preferred language for generation and usage.  We recommend this so all CLI tooling can detect what language your project is in.
+
+```bash
+# For BoxLang Generation
+package set language="boxlang"
+
+# For CFML
+package set language="cfml"
 ```
