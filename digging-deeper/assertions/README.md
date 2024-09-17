@@ -6,7 +6,27 @@ icon: octagon-check
 
 TestBox supports the concept of [assertions](http://en.wikipedia.org/wiki/Assertion\_\(software\_development\)) to allow for validations and for legacy tests. We encourage developers to use our BDD expectations as they are more readable and fun to use (Yes, fun I said!).
 
-The assertions are modeled in the class `testbox.system.Assertion`, so you can visit the [API](http://apidocs.ortussolutions.com/testbox/current/?testbox/system/Assertion.html) for the latest assertions available. Each test bundle will receive a variable called `$assert` which represents the assertions object. Here are some common assertion methods:
+The assertions are modeled in the class `testbox.system.Assertion`, so you can visit the [API](http://apidocs.ortussolutions.com/testbox/current/?testbox/system/Assertion.html) for the latest assertions available. Each test bundle will receive a variable called `$assert` which represents the assertions object.&#x20;
+
+### BoxLang Assertions
+
+If you are running and testing with BoxLang, you will have the extra benefit of the assertions dynamic methods.  This allows you to just called the method in the `Assertion` object prefixed by `assert`.
+
+```cfscript
+// Normal method
+$assert.isTrue()
+$assert.between()
+$assert.closeTo()
+
+// With BoxLang Dynamic Methods
+assertIsTrue()
+assertBetween()
+assertCloseTo()
+```
+
+### Common Assertions
+
+Here are some common assertion methods:
 
 ```javascript
 assert( expression, [message] )

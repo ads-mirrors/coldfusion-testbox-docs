@@ -41,22 +41,22 @@ function testAwesomenewss(){
 }
 ```
 
-### CFC Assertions
+### Class Assertions
 
-You can also store a [plethora](http://en.wikipedia.org/wiki/Plethora) of assertions (Yes, I said plethora), in a CFC and register that as the assertions via its instantiation path. This provides much more flexibility and re-usability for your projects.
+You can also store a [plethora](http://en.wikipedia.org/wiki/Plethora) of assertions (Yes, I said plethora), in a class and register that as the assertions via its instantiation path. This provides much more flexibility and re-usability for your projects.
 
 ```javascript
 addAssertions( "model.util.MyAssertions" );
 ```
 
-You can also register more than 1 CFC by using a list or an array:
+You can also register more than 1 class by using a list or an array:
 
 ```javascript
 addAssertions( "model.util.MyAssertions, model.util.RegexAssertions" );
 addAssertions( [ "model.util.MyAssertions" , "model.util.RegexAssertions" ] );
 ```
 
-Here is the custom assertions CFC source:
+Here is the custom assertions source:
 
 ```javascript
 component{

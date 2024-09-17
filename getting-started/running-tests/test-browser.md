@@ -11,4 +11,4 @@ TestBox ships with a test browser that is highly configurable to whatever URL ac
 
 It is also a mini web application that can be configured to whatever root folder you desire.  It will read the runners and tests from that folder and present a GUI that you can use to navigate the test folders and execute them easily.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>

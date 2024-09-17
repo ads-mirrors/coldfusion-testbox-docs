@@ -2,17 +2,39 @@
 icon: boxing-glove
 ---
 
-# BoxLang Runner
+# BoxLang CLI Runner
 
-TestBox 6 ships with a new BoxLang CLI runner for Linux/Mac and Windows. This will allow you to execute your tests from the CLI and, in the future, via VSCode easily and extremely fast. It can also execute and stream the executions so you can see the testing progress when running in verbose mode. This will work for both BoxLang and CFML tests running the BoxLang runtime.
+TestBox ships with a new BoxLang CLI runner for Linux/Mac and Windows. This will allow you to execute your tests from the CLI and, in the future, via VSCode easily and extremely fast. It can also execute and stream the executions so you can see the testing progress when running in `verbose` mode.   The runner can also execute specs/tests that are written in CFML or BoxLang in the BoxLang runtime.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
-Please note that this is a BoxLang-only feature. It executes your tests within the BoxLang runtime with its modules, not a web server.
+Please note that this is a BoxLang-only feature.
+{% endhint %}
+
+BoxLang allows you to not only build web applications, but CLI, serverless, Android, etc.  You can use this runner to test each environment.  However, please note that if you will be doing web server testing from the CLI only, you will need to install the web support module into the Operating System runtime.
+
+### Web Server Testing
+
+If you want to test from the CLI your web application with no web server, then you will need to install the `bx-web-support` module into the CLI.  _Remember that BoxLang is multi-runtime, and you not only can build web applications but CLI or OS based applications._
+
+```bash
+// CommandBox
+install bx-web-support
+
+// BoxLang OS Binary
+install-bx-module bx-web-support
+```
+
+This will add web support to the CLI (BIFS, components, etc.) and a mock HTTP server so you can do full life-cycle testing from the CLI like if running your app in a web server.  This runner does not require a web server to function, thus if you are building a web app, you will need this module if you still want to continue to execute your tests in the CLI Runtime.
+
+{% hint style="success" %}
+If you are building exclusively a web application, we suggest you use the [CommandBox runner](commandbox-runner.md) which will call your runner via HTTP from the CLI.  You can also just use the [Web Runner](test-runner.md).
 {% endhint %}
 
 ### Script Locations
 
-The scripts are located here: `/testbox/bin` from the TestBox installation package.
+The scripts are located in the following directory: `/testbox/bin` from the TestBox installation package.
 
 * `run` - For Linux/Mac
 * `run.bat` - For Windows

@@ -8,5 +8,5 @@ TestBox allows you to create BDD expectations with our expectations and matcher 
 
 ```javascript
 expect( 43 ).toBe( 42 );
-expect( function(){ calculator.add(2,2); } ).toThrow();
+expect( () => calculator.add(2,2) ).toThrow();
 ```

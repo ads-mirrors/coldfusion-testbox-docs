@@ -11,4 +11,4 @@ TestBox ships with a global runner that can be used to run pretty much anything.
 
 This is a mini web application to help you run bundles, directory, specs and more.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>

@@ -54,15 +54,15 @@ it("A custom matcher", function(){
 });
 ```
 
-### CFC Matchers
+### Class Matchers
 
-You can also store a [plethora](http://en.wikipedia.org/wiki/Plethora) of matchers (Yes, I said plethora), in a CFC and register that as the matchers via its instantiation path. This provides much more flexibility and re-usability for your projects.
+You can also store a [plethora](http://en.wikipedia.org/wiki/Plethora) of matchers (Yes, I said plethora), in a class and register that as the matchers via its instantiation path. This provides much more flexibility and re-usability for your projects.
 
 ```javascript
 addMatchers( "model.util.MyMatchers" );
 ```
 
-You can also register a CFC instance:
+You can also register an instance:
 
 ```javascript
 addMatchers( new models.util.MyMatchers() );
