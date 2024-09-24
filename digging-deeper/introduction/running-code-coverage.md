@@ -25,12 +25,6 @@ install testbox --saveDev
 
 The `--saveDev` flag will store TestBox as a development dependency.
 
-To update a previous installation of TestBox 2.x to the latest, you will need to explicitly ask for 3.x. Please note 3.x may have some breaking changes from 2.x and support different CF engines, so please review the [release notes](broken-reference) first.
-
-```bash
-install testbox@3
-```
-
 ## Test Suite
 
 If you don't have test suite yet, let's install a ColdBox sample app to play with. TestBox does not require ColdBox to work, but the mechanics of the test runner itself are identical so this is the easiest way to get one running. Run these CommandBox commands in an empty directory.
@@ -42,7 +36,7 @@ server start
 
 Inside your directory will be a folder called `/tests` which has our test runner `/tests/runner.cfm`. You will need to open your runner.cfm and default code coverage enabled to true.
 
-```
+```xml
 <!--- Code Coverage requires FusionReactor --->
 <cfparam name="url.coverageEnabled"    default="true">
 ```
