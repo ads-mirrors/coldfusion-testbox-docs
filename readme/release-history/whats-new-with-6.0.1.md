@@ -1,13 +1,19 @@
 ---
-description: December 5, 2024
+description: January 28, 2025
 ---
 
-# What's New With 6.0.1
+# What's New With 6.1.0
+
+### New Features
+
+* [TESTBOX-412](https://ortussolutions.atlassian.net/browse/TESTBOX-412) Updated to use cbMockData now instead of MockDataCFC
 
 ### Improvements
 
-[TESTBOX-407](https://ortussolutions.atlassian.net/browse/TESTBOX-407) switch from java method array.addAll() to cfml array.Append()
+* [TESTBOX-409](https://ortussolutions.atlassian.net/browse/TESTBOX-409) Support BoxLang without needing compat
 
 ### Bugs
 
-[TESTBOX-404](https://ortussolutions.atlassian.net/browse/TESTBOX-404) The identification of the web pageContext had a typo: getpageContext instead of just page context for BoxLang detection
+* [TESTBOX-408](https://ortussolutions.atlassian.net/browse/TESTBOX-408) Allow toHaveKey to support struct-like objects
+* [TESTBOX-410](https://ortussolutions.atlassian.net/browse/TESTBOX-410) Error when using the `url.excludes` with the HTML runner
+* [TESTBOX-411](https://ortussolutions.atlassian.net/browse/TESTBOX-411) fix missing \`cfloop\` on test browser

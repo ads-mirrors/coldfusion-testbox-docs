@@ -2,7 +2,8 @@
 
 * [Introduction](README.md)
   * [Release History](readme/release-history/README.md)
-    * [What's New With 6.0.1](readme/release-history/whats-new-with-6.0.1.md)
+    * [What's New With 6.1.0](readme/release-history/whats-new-with-6.0.1.md)
+    * [What's New With 6.0.1](readme/release-history/whats-new-with-6.0.1-1.md)
     * [What's New With 6.0.0](readme/release-history/whats-new-with-6.0.0.md)
   * [About This Book](readme/about-this-book/README.md)
     * [Author](readme/about-this-book/author.md)
