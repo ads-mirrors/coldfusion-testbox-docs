@@ -1,6 +1,5 @@
 ---
 description: September 27, 2024
-icon: circle-6
 ---
 
 # What's New With 6.0.0
