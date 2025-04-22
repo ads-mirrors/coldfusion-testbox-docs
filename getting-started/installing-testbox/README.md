@@ -33,7 +33,7 @@ The only requirement is that it be in either in the webroot or in a location whe
 ### System Requirements
 
 * <img src="../../.gitbook/assets/image (8).png" alt="" data-size="line"> [BoxLang 1+](https://boxlang.io) Language (Our preference)
-* CFML Engines: Lucee 5.x+ or ColdFusion 2018+
+* CFML Engines: Lucee 5.x+ or ColdFusion 2021+
 
 {% hint style="success" %}
 TestBox has been designed to work in the BoxLang language and can also be compatible in CFML languages.
